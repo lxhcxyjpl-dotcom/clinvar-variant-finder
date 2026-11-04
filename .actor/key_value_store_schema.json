@@ -1,0 +1,32 @@
+{
+    "actorKeyValueStoreSchemaVersion": 1,
+    "title": "ClinVar Variant Finder key-value store",
+    "description": "Run overview written alongside the variant dataset. The NCBI API key is never stored.",
+    "collections": {
+        "overview": {
+            "title": "Run overview",
+            "description": "How many variants were saved and what each ClinVar search reported.",
+            "key": "OUTPUT",
+            "contentTypes": ["application/json"],
+            "jsonSchema": {
+                "type": "object",
+                "properties": {
+                    "variantCount": { "type": "integer" },
+                    "source": { "type": "string" },
+                    "database": { "type": "string" },
+                    "searches": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "term": { "type": "string" },
+                                "totalCount": { "type": "integer" },
+                                "fetchedIds": { "type": "integer" }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

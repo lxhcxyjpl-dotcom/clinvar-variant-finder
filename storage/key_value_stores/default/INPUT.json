@@ -1,0 +1,6 @@
+{
+    "query": "breast cancer",
+    "geneSymbols": ["BRCA1"],
+    "clinicalSignificance": ["Pathogenic"],
+    "maxResults": 10
+}
