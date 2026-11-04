@@ -1,0 +1,98 @@
+{
+    "$schema": "https://apify.com/schemas/v1/input.ide.json",
+    "title": "ClinVar Variant Finder input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "query": {
+            "title": "Search query",
+            "type": "string",
+            "description": "Free-text ClinVar search for a gene, disease, phenotype, or an Entrez expression. Required unless you set gene symbols, rsIDs, HGVS expressions, or ClinVar variation IDs. When you combine this with those lists, each mode is searched and the variants are merged.",
+            "editor": "textarea",
+            "prefill": "BRCA1"
+        },
+        "geneSymbols": {
+            "title": "Gene symbols",
+            "type": "array",
+            "description": "HGNC gene symbols, for example BRCA1 or TP53. Each symbol is searched in the ClinVar gene field and combined with OR.",
+            "editor": "stringList",
+            "default": [],
+            "items": {
+                "type": "string"
+            }
+        },
+        "rsids": {
+            "title": "rsIDs",
+            "type": "array",
+            "description": "dbSNP rsIDs, for example rs80357906. A leading rs is optional.",
+            "editor": "stringList",
+            "default": [],
+            "items": {
+                "type": "string"
+            }
+        },
+        "hgvs": {
+            "title": "HGVS expressions",
+            "type": "array",
+            "description": "HGVS notations searched against ClinVar variant names, for example NM_007294.4:c.181T>G.",
+            "editor": "stringList",
+            "default": [],
+            "items": {
+                "type": "string"
+            }
+        },
+        "clinvarIds": {
+            "title": "ClinVar variation IDs",
+            "type": "array",
+            "description": "ClinVar variation IDs (digits) or VCV accessions, for example 17661 or VCV000017661.",
+            "editor": "stringList",
+            "default": [],
+            "items": {
+                "type": "string"
+            }
+        },
+        "clinicalSignificance": {
+            "title": "Clinical significance",
+            "type": "array",
+            "description": "Optional filter added to every search. Pathogenic, Likely pathogenic, Uncertain significance (VUS), Likely benign, and Benign use ClinVar property terms. Conflicting classifications uses the review-status term for records whose submitters disagree. Leave empty to keep every significance.",
+            "editor": "select",
+            "default": [],
+            "uniqueItems": true,
+            "items": {
+                "type": "string",
+                "enum": [
+                    "Pathogenic",
+                    "Likely pathogenic",
+                    "Uncertain significance",
+                    "Likely benign",
+                    "Benign",
+                    "Conflicting classifications of pathogenicity"
+                ],
+                "enumTitles": [
+                    "Pathogenic",
+                    "Likely pathogenic",
+                    "Uncertain significance (VUS)",
+                    "Likely benign",
+                    "Benign",
+                    "Conflicting classifications of pathogenicity"
+                ]
+            }
+        },
+        "maxResults": {
+            "title": "Maximum variants",
+            "type": "integer",
+            "description": "Maximum number of variants to save after duplicates are removed. NCBI chooses the order, usually the most recently indexed matches.",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 500
+        },
+        "ncbiApiKey": {
+            "title": "NCBI API key",
+            "type": "string",
+            "description": "Optional NCBI E-utilities API key. Without a key the Actor stays near 3 requests per second. With a key it uses about 10 requests per second. The key is sent only to NCBI and is never written to the dataset or the logs. Create one in your NCBI account settings.",
+            "editor": "textfield",
+            "isSecret": true
+        }
+    },
+    "required": []
+}

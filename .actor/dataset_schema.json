@@ -1,0 +1,152 @@
+{
+    "$schema": "https://apify.com/schemas/v1/dataset.ide.json",
+    "actorSpecification": 1,
+    "fields": {
+        "type": "object",
+        "properties": {
+            "clinvarId": { "type": "string" },
+            "name": { "type": "string" },
+            "geneSymbol": { "type": "string" },
+            "geneId": { "type": "string" },
+            "geneSymbols": {
+                "type": "array",
+                "items": { "type": "string" }
+            },
+            "clinicalSignificance": { "type": "string" },
+            "reviewStatus": { "type": "string" },
+            "lastEvaluated": { "type": "string" },
+            "molecularConsequence": {
+                "type": "array",
+                "items": { "type": "string" }
+            },
+            "variationType": { "type": "string" },
+            "hgvs": {
+                "type": "array",
+                "items": { "type": "string" }
+            },
+            "rsid": { "type": "string" },
+            "rsids": {
+                "type": "array",
+                "items": { "type": "string" }
+            },
+            "phenotypes": {
+                "type": "array",
+                "items": { "type": "string" }
+            },
+            "proteinChange": { "type": "string" },
+            "canonicalSpdi": { "type": "string" },
+            "chromosome": { "type": "string" },
+            "start": { "type": "integer" },
+            "stop": { "type": "integer" },
+            "assembly": { "type": "string" },
+            "submitterConflict": { "type": "boolean" },
+            "clinvarUrl": { "type": "string" },
+            "accession": { "type": "string" },
+            "accessionVersion": { "type": "string" }
+        }
+    },
+    "views": {
+        "overview": {
+            "title": "Overview",
+            "description": "One ClinVar variant per row, with the fields most useful for panel review.",
+            "transformation": {
+                "fields": [
+                    "clinvarId",
+                    "name",
+                    "geneSymbol",
+                    "clinicalSignificance",
+                    "reviewStatus",
+                    "lastEvaluated",
+                    "variationType",
+                    "rsid",
+                    "chromosome",
+                    "start",
+                    "stop",
+                    "assembly",
+                    "submitterConflict",
+                    "clinvarUrl"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "clinvarId": { "label": "ClinVar ID", "format": "text" },
+                    "name": { "label": "Name", "format": "text" },
+                    "geneSymbol": { "label": "Gene", "format": "text" },
+                    "clinicalSignificance": { "label": "Clinical significance", "format": "text" },
+                    "reviewStatus": { "label": "Review status", "format": "text" },
+                    "lastEvaluated": { "label": "Last evaluated", "format": "date" },
+                    "variationType": { "label": "Variation type", "format": "text" },
+                    "rsid": { "label": "rsID", "format": "text" },
+                    "chromosome": { "label": "Chromosome", "format": "text" },
+                    "start": { "label": "Start", "format": "number" },
+                    "stop": { "label": "Stop", "format": "number" },
+                    "assembly": { "label": "Assembly", "format": "text" },
+                    "submitterConflict": { "label": "Submitter conflict", "format": "boolean" },
+                    "clinvarUrl": { "label": "ClinVar", "format": "link" }
+                }
+            }
+        },
+        "details": {
+            "title": "Details",
+            "description": "HGVS, consequences, phenotypes, and stable accessions.",
+            "transformation": {
+                "fields": [
+                    "clinvarId",
+                    "name",
+                    "geneSymbol",
+                    "geneId",
+                    "geneSymbols",
+                    "clinicalSignificance",
+                    "reviewStatus",
+                    "lastEvaluated",
+                    "molecularConsequence",
+                    "variationType",
+                    "hgvs",
+                    "rsid",
+                    "rsids",
+                    "phenotypes",
+                    "proteinChange",
+                    "canonicalSpdi",
+                    "accession",
+                    "accessionVersion",
+                    "chromosome",
+                    "start",
+                    "stop",
+                    "assembly",
+                    "submitterConflict",
+                    "clinvarUrl"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "clinvarId": { "label": "ClinVar ID", "format": "text" },
+                    "name": { "label": "Name", "format": "text" },
+                    "geneSymbol": { "label": "Gene", "format": "text" },
+                    "geneId": { "label": "Gene ID", "format": "text" },
+                    "geneSymbols": { "label": "Genes", "format": "array" },
+                    "clinicalSignificance": { "label": "Clinical significance", "format": "text" },
+                    "reviewStatus": { "label": "Review status", "format": "text" },
+                    "lastEvaluated": { "label": "Last evaluated", "format": "date" },
+                    "molecularConsequence": { "label": "Molecular consequence", "format": "array" },
+                    "variationType": { "label": "Variation type", "format": "text" },
+                    "hgvs": { "label": "HGVS", "format": "array" },
+                    "rsid": { "label": "rsID", "format": "text" },
+                    "rsids": { "label": "rsIDs", "format": "array" },
+                    "phenotypes": { "label": "Phenotypes", "format": "array" },
+                    "proteinChange": { "label": "Protein change", "format": "text" },
+                    "canonicalSpdi": { "label": "Canonical SPDI", "format": "text" },
+                    "accession": { "label": "Accession", "format": "text" },
+                    "accessionVersion": { "label": "Accession version", "format": "text" },
+                    "chromosome": { "label": "Chromosome", "format": "text" },
+                    "start": { "label": "Start", "format": "number" },
+                    "stop": { "label": "Stop", "format": "number" },
+                    "assembly": { "label": "Assembly", "format": "text" },
+                    "submitterConflict": { "label": "Submitter conflict", "format": "boolean" },
+                    "clinvarUrl": { "label": "ClinVar", "format": "link" }
+                }
+            }
+        }
+    }
+}

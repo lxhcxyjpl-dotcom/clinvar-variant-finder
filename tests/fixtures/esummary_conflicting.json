@@ -1,0 +1,56 @@
+{
+    "result": {
+        "uids": ["5019162"],
+        "5019162": {
+            "uid": "5019162",
+            "obj_type": "single nucleotide variant",
+            "accession": "VCV005019162",
+            "accession_version": "VCV005019162.1",
+            "title": "NM_017780.4(CHD7):c.3050G>T (p.Gly1017Val)",
+            "gene_sort": "CHD7",
+            "genes": [
+                {"symbol": "CHD7", "geneid": "55636"},
+                {"symbol": "LOC105379", "geneid": "105379"}
+            ],
+            "germline_classification": {
+                "description": "Conflicting classifications of pathogenicity",
+                "last_evaluated": "2024/03/04 00:00",
+                "review_status": "criteria provided, conflicting classifications",
+                "trait_set": [
+                    {"trait_name": "CHARGE syndrome"},
+                    {"trait_name": "not provided"}
+                ]
+            },
+            "molecular_consequence_list": ["missense variant"],
+            "protein_change": "G1017V",
+            "variation_set": [
+                {
+                    "variant_type": "single nucleotide variant",
+                    "variation_name": "NM_017780.4(CHD7):c.3050G>T (p.Gly1017Val)",
+                    "cdna_change": "c.3050G>T",
+                    "canonical_spdi": "NC_000008.11:60825999:C:A",
+                    "aliases": ["NP_060250.2:p.Gly1017Val", "300T>G"],
+                    "variation_xrefs": [
+                        {"db_source": "dbSNP", "db_id": "1555532857"}
+                    ],
+                    "variation_loc": [
+                        {
+                            "status": "previous",
+                            "assembly_name": "GRCh37",
+                            "chr": "8",
+                            "start": "61738558",
+                            "stop": "61738558"
+                        },
+                        {
+                            "status": "current",
+                            "assembly_name": "GRCh38",
+                            "chr": "8",
+                            "start": "60825999",
+                            "stop": "60826000"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
